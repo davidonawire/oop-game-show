@@ -26,12 +26,16 @@
      }
 
 
-     checkLetter() {
-
+     checkLetter(letter) {
+        return this.phrase.includes(letter);
      }
 
 
-     showMatchedLetter() {
-
+     showMatchedLetter(letter) {
+        matchedLetters = document.querySelectorAll(`.letter ${letter}`);
+        matchedLetters.forEach(li => {
+            li.classList.remove('hide');
+            li.classList.add('show');
+        })
      }
  }
