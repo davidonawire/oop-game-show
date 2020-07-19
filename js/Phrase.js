@@ -1,3 +1,37 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Phrase.js */
+
+ class Phrase {
+     constructor(phrase) {
+         this.phrase = phrase.toLowerCase();
+     }
+
+
+     addPhraseToDisplay() {
+        const phraseUL = document.querySelector('#phrase ul');
+        const phraseLetters = Array.from(this.phrase);
+        for (let letter of phraseLetters) {
+            const li = document.createElement('li');
+
+            if (letter = ' ') {
+                li.classList.add('space');
+            } else {
+                li.classList.add('hide', 'letter', letter);
+            }
+
+            li.textContent = letter;
+            phraseUL.appendChild(li);
+        }
+     }
+
+
+     checkLetter() {
+
+     }
+
+
+     showMatchedLetter() {
+
+     }
+ }
