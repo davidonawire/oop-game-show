@@ -11,10 +11,10 @@
      addPhraseToDisplay() {
         const phraseUL = document.querySelector('#phrase ul');
         const phraseLetters = Array.from(this.phrase);
-        for (let letter of phraseLetters) {
-            const li = document.createElement('li');
 
-            if (letter = ' ') {
+        for (let letter of phraseLetters) {
+            let li = document.createElement('li');
+            if (letter === ' ') {
                 li.classList.add('space');
             } else {
                 li.classList.add('hide', 'letter', letter);
@@ -32,7 +32,7 @@
 
 
      showMatchedLetter(letter) {
-        matchedLetters = document.querySelectorAll(`.letter ${letter}`);
+        const matchedLetters = document.querySelectorAll(`.letter.${letter}`);
         matchedLetters.forEach(li => {
             li.classList.remove('hide');
             li.classList.add('show');
