@@ -36,6 +36,6 @@
         matchedLetters.forEach(li => {
             li.classList.remove('hide');
             li.classList.add('show');
-        })
+        });
      }
  }
