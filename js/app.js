@@ -11,5 +11,7 @@ document.getElementById('btn__reset').addEventListener('click', (e) => {
 
 
 document.getElementById('qwerty').addEventListener('click', (e) => {
-    game.handleInteraction(e.target);
+    if (e.target.type === 'submit') {
+        game.handleInteraction(e.target);
+    }
 })

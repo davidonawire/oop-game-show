@@ -12,6 +12,7 @@ class Game {
 
     startGame() {
         this.activePhrase = this.getRandomPhrase();
+        console.log(this.activePhrase);
         this.activePhrase.addPhraseToDisplay();
         document.getElementById('overlay').style.display = 'none';
     }
@@ -46,24 +47,41 @@ class Game {
         if (phrase.checkLetter(letter)) {
             phrase.showMatchedLetter(letter);
             button.classList.add('chosen');
+            this.checkForWin();
         } else {
             button.classList.add('wrong');
-            // removeLife();
+            this.removeLife();
+            if (this.missed === 5) {
+                this.gameOver(false);
+            }
         }
     }
 
 
     removeLife() {
-
+        const heartsImg = document.querySelectorAll('.tries img')[this.missed];
+        heartsImg.src = 'images/lostHeart.png';
+        this.missed += 1;
     }
 
 
     checkForWin() {
-
+        if (document.querySelectorAll('.hide').length === 0) {
+            this.gameOver(true);
+        }
     }
 
 
-    gameOver() {
+    gameOver(gameWon) {
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'inherit';
 
+        if (gameWon) {
+            overlay.className = 'win';
+            document.getElementById('game-over-message').textContent = 'Congratulations! You won!';
+        } else {
+            overlay.className = 'lose';
+            document.getElementById('game-over-message').textContent = 'Drat! Better luck next time.';
+        }
     }
 }
