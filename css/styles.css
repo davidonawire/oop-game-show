@@ -1,5 +1,3 @@
-/* Main styles */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
 
 /* Variables */
 
@@ -8,9 +6,9 @@
   --color-lose: #D94545;
   --color-start: #5b85b7;
   --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
+  --color-neutral-light: paleturquoise;
   --color-keys: #37474F;
-  --color-keys-light: #E5E5E5;
+  --color-keys-light: lightblue;
   --font-size-large: 60px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
@@ -20,7 +18,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -28,6 +26,7 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
+  background-color: lightcyan;
 }
 
 li, ol, ul {
@@ -37,9 +36,8 @@ li, ol, ul {
 
 h2 {
   margin: 0;
-  text-transform: uppercase;
   font-size: var(--font-size-large);
-  margin: 0;
+  font-family: 'Racing Sans One', cursive;
 }
 
 h1 {
@@ -52,6 +50,7 @@ button {
   padding: .5rem 1rem;
   color: var(--color-keys);
   font-size: var(--font-size-medium);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
   background-color: var(--color-keys-light);
   border-radius: 5px;
   -webkit-transition: var(--transition);
