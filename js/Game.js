@@ -44,16 +44,20 @@ class Game {
         const phrase = this.activePhrase;
         const letter = button.textContent;
 
+        button.disabled = true;
+
         if (phrase.checkLetter(letter)) {
             phrase.showMatchedLetter(letter);
             button.classList.add('chosen');
-            this.checkForWin();
         } else {
             button.classList.add('wrong');
             this.removeLife();
-            if (this.missed === 5) {
-                this.gameOver(false);
-            }
+        }
+
+        if ( this.checkForWin() ) {
+            this.gameOver(true);
+        } else if (this.missed === 5) {
+            this.gameOver(false);
         }
     }
 
@@ -67,8 +71,9 @@ class Game {
 
     checkForWin() {
         if (document.querySelectorAll('.hide').length === 0) {
-            this.gameOver(true);
+            return true;
         }
+        return false;
     }
 
 
