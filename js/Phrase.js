@@ -1,5 +1,4 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
+/* OOP JavaScript Game Show
  * Phrase.js */
 
 class Phrase {
@@ -31,10 +30,14 @@ class Phrase {
         return this.phrase.includes(letter);
     }
 
-
+    
+    /**
+     * Displays all Phrase letter tiles which match the letter passed in
+     * @param {string} letter 
+     */
     showMatchedLetter(letter) {
         const matchedLetters = document.querySelectorAll(`.letter.${letter}`);
-        
+
         matchedLetters.forEach(li => {
             li.classList.remove('hide');
             li.classList.add('show');

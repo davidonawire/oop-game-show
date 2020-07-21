@@ -1,5 +1,4 @@
-/* Treehouse FSJS Techdegree
-* Project 4 - OOP Game App
+/* OOP JavaScript Game Show
 * Game.js */
 
 class Game {
@@ -81,7 +80,11 @@ class Game {
         return false;
     }
 
-
+    /**
+     * Displays Game Won or Game Lost overlay and message, then
+     * calls resetGame().
+     * @param {boolean} gameWon - set to true if the game is won
+     */
     gameOver(gameWon) {
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'inherit';

@@ -1,5 +1,4 @@
-/* Treehouse FSJS Techdegree
-* Project 4 - OOP Game App
+/* OOP JavaScript Game Show
 * app.js */
 
 let game = null;
@@ -10,6 +9,7 @@ document.getElementById('btn__reset').addEventListener('click', (e) => {
 });
 
 
+// Listen for clicks on the guess buttons
 document.getElementById('qwerty').addEventListener('click', (e) => {
     if (e.target.type === 'submit') {
         game.handleInteraction(e.target);
@@ -17,6 +17,7 @@ document.getElementById('qwerty').addEventListener('click', (e) => {
 });
 
 
+// But also accept letter guesses via the keyboard
 document.addEventListener('keyup', (e) => {
     const matchExp = /^[a-z]$/i;
 

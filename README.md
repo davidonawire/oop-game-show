@@ -1,4 +1,4 @@
-# oop-game-show
+# OOP JavaScript Game Show
 Simple phrase-guessing game to demonstrate OOP concepts.
 
 The player is presented with a secret phrase, chosen randomly, and must then guess the phrase by guessing letters. If all the letters are guessed correctly, it's a win! But after five incorrect guesses, the game is lost.
