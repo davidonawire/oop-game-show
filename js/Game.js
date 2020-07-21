@@ -22,7 +22,6 @@ class Game {
         const phraseStrings = ['See ya later alligator',
                     'A penny saved is a penny earned',
                     'Dance like nobody is watching',
-                    'Wish you were here',
                     'Measure twice cut once',
                     'What doesnt kill you makes you stronger'];
 
@@ -49,15 +48,13 @@ class Game {
         if (phrase.checkLetter(letter)) {
             phrase.showMatchedLetter(letter);
             button.classList.add('chosen');
+            
+            if ( this.checkForWin() ) {
+                this.gameOver(true);
+            }
         } else {
             button.classList.add('wrong');
             this.removeLife();
-        }
-
-        if ( this.checkForWin() ) {
-            this.gameOver(true);
-        } else if (this.missed === 5) {
-            this.gameOver(false);
         }
     }
 
@@ -66,6 +63,10 @@ class Game {
         const heartImage = document.querySelectorAll('.tries img')[this.missed];
         heartImage.src = 'images/lostHeart.png';
         this.missed += 1;
+
+        if (this.missed === 5) {
+            this.gameOver(false);
+        }
     }
 
 
