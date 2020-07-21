@@ -12,7 +12,6 @@ class Game {
 
     startGame() {
         this.activePhrase = this.getRandomPhrase();
-        console.log(this.activePhrase);
         this.activePhrase.addPhraseToDisplay();
         document.getElementById('overlay').style.display = 'none';
     }
@@ -43,7 +42,10 @@ class Game {
         const phrase = this.activePhrase;
         const letter = button.textContent;
 
-        button.disabled = true;
+        // Ensure we don't accrue extra misses from keyboard events
+        if (button.disabled) {
+            return;
+        }
 
         if (phrase.checkLetter(letter)) {
             phrase.showMatchedLetter(letter);
@@ -56,6 +58,8 @@ class Game {
             button.classList.add('wrong');
             this.removeLife();
         }
+
+        button.disabled = true;
     }
 
 

@@ -18,7 +18,6 @@ document.getElementById('qwerty').addEventListener('click', (e) => {
 
 
 document.addEventListener('keyup', (e) => {
-    console.log(e.key);
     const matchExp = /^[a-z]$/i;
 
     if ( matchExp.test(e.key) ) {
