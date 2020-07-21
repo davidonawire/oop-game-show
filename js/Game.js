@@ -63,8 +63,8 @@ class Game {
 
 
     removeLife() {
-        const heartsImg = document.querySelectorAll('.tries img')[this.missed];
-        heartsImg.src = 'images/lostHeart.png';
+        const heartImage = document.querySelectorAll('.tries img')[this.missed];
+        heartImage.src = 'images/lostHeart.png';
         this.missed += 1;
     }
 
@@ -88,5 +88,28 @@ class Game {
             overlay.className = 'lose';
             document.getElementById('game-over-message').textContent = 'Drat! Better luck next time.';
         }
+
+        this.resetGame();
+    }
+
+    resetGame() {
+        // Clear the previous phrase
+        document.querySelector('#phrase ul').innerHTML = '';
+
+        // Reset keyboard buttons
+        const keyButtons = document.querySelectorAll('.key');
+
+        keyButtons.forEach(keyButton => {
+            keyButton.classList.remove('chosen');
+            keyButton.classList.remove('wrong');
+            keyButton.disabled = false;
+        });
+
+        // Reset hearts
+        const heartImages = document.querySelectorAll('.tries img');
+
+        heartImages.forEach(heartImage => {
+            heartImage.src = 'images/liveHeart.png';
+        });
     }
 }
